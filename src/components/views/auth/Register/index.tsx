@@ -28,13 +28,12 @@ const RegisterView = () => {
     });
 
     if (result.status === 200) {
-      setIsLoading(false);
       form.reset();
+      setIsLoading(false);
       push("/auth/login");
     } else {
       setIsLoading(false);
       setError("Email is already registered");
-      console.log("Error");
     }
   };
 
