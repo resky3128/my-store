@@ -1,7 +1,7 @@
 import { Session } from "inspector";
 import NextAuth, { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-import { loginWithGoogle, signIn } from "@/lib/firebase/service";
+import { loginWithGoogle, signIn } from "@/services/auth";
 import { compare } from "bcrypt";
 import GoogleProvider from "next-auth/providers/google";
 
@@ -52,7 +52,7 @@ const authOptions: NextAuthOptions = {
         token.role = user.role;
       }
 
-      if (account?.preovider === "google") {
+      if (account?.provider === "google") {
         const data = {
           fullname: user.name,
           email: user.email,
